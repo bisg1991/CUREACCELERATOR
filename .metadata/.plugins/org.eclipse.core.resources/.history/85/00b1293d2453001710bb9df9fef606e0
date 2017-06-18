@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Test suite 1" verbose="1" >
+  <test name="Home Page Test" >
+      <parameter name="browser" value="chrome"/>
+      <parameter name="URL" value="http://swb.cureaccelerator.org"/>
+    <classes>
+      <class name="com.cure.softweb.RUN.HomePage"/>
+    </classes>
+ </test>
+</suite>

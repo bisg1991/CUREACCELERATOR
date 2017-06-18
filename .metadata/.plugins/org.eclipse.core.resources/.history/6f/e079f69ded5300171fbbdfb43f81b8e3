@@ -1,0 +1,32 @@
+package com.cure.softweb.RUN;
+
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import com.cure.softweb.Main.TestBase;
+import com.cure.softweb.PageObjects.HOMEPAGE;
+
+public class HomePage  extends TestBase {
+	
+	HOMEPAGE hp;
+	
+	@Parameters({ "browser", "URL" })
+	@BeforeTest
+	public void initiateBrowsers(String browser, String URL){
+		selectBrowser(browser, URL);
+	}
+
+    
+	@Test
+	public void login(){
+		hp= new HOMEPAGE(driver);
+	}
+
+
+
+
+
+
+
+}

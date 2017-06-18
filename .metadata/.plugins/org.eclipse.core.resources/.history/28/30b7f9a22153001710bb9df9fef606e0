@@ -1,0 +1,29 @@
+package com.cure.softweb.Main;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
+
+public class TestBase {
+	
+	public WebDriver driver;
+    
+	@Parameters("browser")
+	@BeforeTest
+	public void selectBrowser(String browser) {
+		   if (browser.equals("chrome")) {
+				System.out.println(System.getProperty("user.dir"));
+				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/BROWSERDRIVERS/chromedriver.exe");
+				driver = new ChromeDriver();
+				
+			} else if (browser.equals("firefox")) {
+				System.out.println(System.getProperty("user.dir"));
+				System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "/BROWSERDRIVERS/geckodriver.exe");
+				driver = new FirefoxDriver();
+				
+			}
+		}
+
+}

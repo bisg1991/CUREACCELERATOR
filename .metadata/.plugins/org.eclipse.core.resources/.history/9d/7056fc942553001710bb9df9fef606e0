@@ -1,0 +1,20 @@
+package com.cure.softweb.PageObjects;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+
+public class HOMEPAGE {
+	
+	WebDriver driver;
+	public HOMEPAGE(WebDriver driver){
+		
+		PageFactory.initElements(driver, this);
+	}
+	
+	
+	//Login via credentials
+	
+	
+	
+
+}
