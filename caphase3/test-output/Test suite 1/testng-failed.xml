@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Test suite 1]">
+  <parameter name="browser" value="chrome"/>
+  <parameter name="URL" value="http://swb.cureaccelerator.org"/>
   <test name="Home Page Test with chrome(failed)">
-    <parameter name="emails" value="bsoftwebsolution"/>
-    <parameter name="pass" value="testing!123"/>
     <parameter name="browser" value="chrome"/>
     <parameter name="URL" value="http://swb.cureaccelerator.org"/>
     <classes>
       <class name="com.cure.softweb.RUN.HomePage">
         <methods>
-          <include name="login" invocation-numbers="0"/>
           <include name="initiateBrowsers"/>
+          <include name="createsp2"/>
         </methods>
       </class> <!-- com.cure.softweb.RUN.HomePage -->
     </classes>
