@@ -16,12 +16,13 @@
 
   <dependencies>
   
-  <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+ <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
 <dependency>
     <groupId>org.seleniumhq.selenium</groupId>
     <artifactId>selenium-java</artifactId>
-    <version>3.4.0</version>
+    <version>3.3.1</version>
 </dependency>
+
 
 
 		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
@@ -39,12 +40,13 @@
             <version>3.0.0-beta4</version>
          </dependency>
         
-        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-server -->
-        <dependency>
-             <groupId>org.seleniumhq.selenium</groupId>
-             <artifactId>selenium-server</artifactId>
-             <version>3.0.0-beta4</version>
-        </dependency>
+       <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-server -->
+<dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-server</artifactId>
+    <version>3.4.0</version>
+</dependency>
+
 
 
 		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->

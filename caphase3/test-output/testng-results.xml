@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="3" passed="3">
+<testng-results skipped="0" failed="3" total="5" passed="2">
   <reporter-output>
+    <line>
+      <![CDATA[<a href='D:\CURE-2017\caphase3\CAFailed\screenshots\failure_screenshots\login_28_06_2017_05_35_08.png'> <img src='D:\CURE-2017\caphase3\CAFailed\screenshots\failure_screenshots\login_28_06_2017_05_35_08.png' height='100' width='100'/> </a>]]>
+    </line>
+    <line>
+      <![CDATA[<a href='D:\CURE-2017\caphase3\CAFailed\screenshots\failure_screenshots\createsp1_28_06_2017_05_35_35.png'> <img src='D:\CURE-2017\caphase3\CAFailed\screenshots\failure_screenshots\createsp1_28_06_2017_05_35_35.png' height='100' width='100'/> </a>]]>
+    </line>
+    <line>
+      <![CDATA[<a href='D:\CURE-2017\caphase3\CAFailed\screenshots\failure_screenshots\createsp2_28_06_2017_05_35_37.png'> <img src='D:\CURE-2017\caphase3\CAFailed\screenshots\failure_screenshots\createsp2_28_06_2017_05_35_37.png' height='100' width='100'/> </a>]]>
+    </line>
   </reporter-output>
-  <suite name="Test suite 1" duration-ms="125097" started-at="2017-06-22T07:20:05Z" finished-at="2017-06-22T07:22:10Z">
+  <suite name="Test suite 1" duration-ms="148626" started-at="2017-06-28T12:03:27Z" finished-at="2017-06-28T12:05:56Z">
     <groups>
     </groups>
-    <test name="Home Page Test with chrome" duration-ms="125097" started-at="2017-06-22T07:20:05Z" finished-at="2017-06-22T07:22:10Z">
+    <test name="Home Page Test with chrome" duration-ms="148626" started-at="2017-06-28T12:03:27Z" finished-at="2017-06-28T12:05:56Z">
       <class name="com.cure.softweb.RUN.HomePage">
-        <test-method status="PASS" signature="initiateBrowsers(java.lang.String, java.lang.String)[pri:0, instance:com.cure.softweb.RUN.HomePage@6e1ec318]" name="initiateBrowsers" is-config="true" duration-ms="77972" started-at="2017-06-22T12:50:05Z" finished-at="2017-06-22T12:51:23Z">
+        <test-method status="PASS" signature="initiateBrowsers(java.lang.String, java.lang.String)[pri:0, instance:com.cure.softweb.RUN.HomePage@10bdf5e5]" name="initiateBrowsers" is-config="true" duration-ms="85089" started-at="2017-06-28T17:33:27Z" finished-at="2017-06-28T17:34:52Z">
           <params>
             <param index="0">
               <value>
@@ -23,7 +32,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initiateBrowsers -->
-        <test-method status="PASS" signature="login(java.lang.String, java.lang.String)[pri:1, instance:com.cure.softweb.RUN.HomePage@6e1ec318]" name="login" duration-ms="8316" started-at="2017-06-22T12:51:25Z" data-provider="Login" finished-at="2017-06-22T12:51:33Z">
+        <test-method status="FAIL" signature="login(java.lang.String, java.lang.String)[pri:1, instance:com.cure.softweb.RUN.HomePage@10bdf5e5]" name="login" duration-ms="14481" started-at="2017-06-28T17:34:53Z" data-provider="Login" finished-at="2017-06-28T17:35:08Z">
           <params>
             <param index="0">
               <value>
@@ -36,19 +45,60 @@
               </value>
             </param>
           </params>
+          <exception class="java.io.IOException">
+            <message>
+              <![CDATA[The system cannot find the path specified]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.io.IOException: The system cannot find the path specified
+	at java.io.WinNTFileSystem.createFileExclusively(Native Method)
+	at java.io.File.createNewFile(Unknown Source)
+	at customreports.Reports.updateResult(Reports.java:34)
+	at com.cure.softweb.RUN.HomePage.login(HomePage.java:55)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:100)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:646)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:811)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1129)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:746)
+	at org.testng.TestRunner.run(TestRunner.java:600)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1264)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1189)
+	at org.testng.TestNG.runSuites(TestNG.java:1104)
+	at org.testng.TestNG.run(TestNG.java:1076)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:152)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:57)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.io.IOException -->
           <reporter-output>
+            <line>
+              <![CDATA[<a href='D:\CURE-2017\caphase3\CAFailed\screenshots\failure_screenshots\login_28_06_2017_05_35_08.png'> <img src='D:\CURE-2017\caphase3\CAFailed\screenshots\failure_screenshots\login_28_06_2017_05_35_08.png' height='100' width='100'/> </a>]]>
+            </line>
           </reporter-output>
         </test-method> <!-- login -->
-        <test-method status="PASS" signature="createsp1(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:2, instance:com.cure.softweb.RUN.HomePage@6e1ec318]" name="createsp1" duration-ms="35060" started-at="2017-06-22T12:51:33Z" data-provider="Project Overview database" finished-at="2017-06-22T12:52:08Z">
+        <test-method status="FAIL" signature="createsp1(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:2, instance:com.cure.softweb.RUN.HomePage@10bdf5e5]" name="createsp1" duration-ms="26516" started-at="2017-06-28T17:35:08Z" data-provider="Project Overview database" finished-at="2017-06-28T17:35:35Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[Wednesday test proposal]]>
+                <![CDATA[Special testing proposal]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[Wednesday test proposal]]>
+                <![CDATA[Special testing proposal]]>
               </value>
             </param>
             <param index="2">
@@ -87,10 +137,51 @@
               </value>
             </param>
           </params>
+          <exception class="java.io.IOException">
+            <message>
+              <![CDATA[The system cannot find the path specified]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.io.IOException: The system cannot find the path specified
+	at java.io.WinNTFileSystem.createFileExclusively(Native Method)
+	at java.io.File.createNewFile(Unknown Source)
+	at customreports.Reports.updateResult(Reports.java:34)
+	at com.cure.softweb.RUN.HomePage.createsp1(HomePage.java:70)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:100)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:646)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:811)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1129)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:746)
+	at org.testng.TestRunner.run(TestRunner.java:600)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1264)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1189)
+	at org.testng.TestNG.runSuites(TestNG.java:1104)
+	at org.testng.TestNG.run(TestNG.java:1076)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:152)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:57)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.io.IOException -->
           <reporter-output>
+            <line>
+              <![CDATA[<a href='D:\CURE-2017\caphase3\CAFailed\screenshots\failure_screenshots\createsp1_28_06_2017_05_35_35.png'> <img src='D:\CURE-2017\caphase3\CAFailed\screenshots\failure_screenshots\createsp1_28_06_2017_05_35_35.png' height='100' width='100'/> </a>]]>
+            </line>
           </reporter-output>
         </test-method> <!-- createsp1 -->
-        <test-method status="PASS" signature="createsp2(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:3, instance:com.cure.softweb.RUN.HomePage@6e1ec318]" name="createsp2" duration-ms="1994" started-at="2017-06-22T12:52:08Z" data-provider="Project funding data" finished-at="2017-06-22T12:52:10Z">
+        <test-method status="FAIL" signature="createsp2(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:3, instance:com.cure.softweb.RUN.HomePage@10bdf5e5]" name="createsp2" duration-ms="1926" started-at="2017-06-28T17:35:35Z" data-provider="Project funding data" finished-at="2017-06-28T17:35:37Z">
           <params>
             <param index="0">
               <value>
@@ -133,9 +224,137 @@
               </value>
             </param>
           </params>
+          <exception class="java.io.IOException">
+            <message>
+              <![CDATA[The system cannot find the path specified]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.io.IOException: The system cannot find the path specified
+	at java.io.WinNTFileSystem.createFileExclusively(Native Method)
+	at java.io.File.createNewFile(Unknown Source)
+	at customreports.Reports.updateResult(Reports.java:34)
+	at com.cure.softweb.RUN.HomePage.createsp2(HomePage.java:83)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:100)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:646)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:811)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1129)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:746)
+	at org.testng.TestRunner.run(TestRunner.java:600)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1264)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1189)
+	at org.testng.TestNG.runSuites(TestNG.java:1104)
+	at org.testng.TestNG.run(TestNG.java:1076)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:152)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:57)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.io.IOException -->
           <reporter-output>
+            <line>
+              <![CDATA[<a href='D:\CURE-2017\caphase3\CAFailed\screenshots\failure_screenshots\createsp2_28_06_2017_05_35_37.png'> <img src='D:\CURE-2017\caphase3\CAFailed\screenshots\failure_screenshots\createsp2_28_06_2017_05_35_37.png' height='100' width='100'/> </a>]]>
+            </line>
           </reporter-output>
         </test-method> <!-- createsp2 -->
+        <test-method status="PASS" signature="createsp3(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:4, instance:com.cure.softweb.RUN.HomePage@10bdf5e5]" name="createsp3" duration-ms="3482" started-at="2017-06-28T17:35:38Z" data-provider="Disease detail data" finished-at="2017-06-28T17:35:41Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Testing the estimated prevalance section]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Testing Current treatment]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[25966.0]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[35255.0]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createsp3 -->
+        <test-method status="PASS" signature="createsp4(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:5, instance:com.cure.softweb.RUN.HomePage@10bdf5e5]" name="createsp4" duration-ms="14633" started-at="2017-06-28T17:35:41Z" data-provider="Trial details data" finished-at="2017-06-28T17:35:56Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[11.0]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[12.0]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[110.0]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[100.0]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Testing concers]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[Testing health]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[Testing healthcare]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[C:\Users\Biswajit.Ghosh\Desktop\Test_Data\TEST DATA UPLOAD\Sample Files\Files\MSWord\Sample MSWord file -1.docx]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[C:\Users\Biswajit.Ghosh\Desktop\Test_Data\TEST DATA UPLOAD\Sample Files\Files\MSWord\Sample MSWord file -2.docx]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[C:\Users\Biswajit.Ghosh\Desktop\Test_Data\TEST DATA UPLOAD\Sample Files\Files\MSWord\Sample MSWord file -3.docx]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[C:\Users\Biswajit.Ghosh\Desktop\Test_Data\TEST DATA UPLOAD\Sample Files\Files\MSWord\Sample MSWord file -5.docx]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createsp4 -->
       </class> <!-- com.cure.softweb.RUN.HomePage -->
     </test> <!-- Home Page Test with chrome -->
   </suite> <!-- Test suite 1 -->

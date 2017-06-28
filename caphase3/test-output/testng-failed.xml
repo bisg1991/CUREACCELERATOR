@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Test suite 1]">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Test suite 1]">
   <parameter name="browser" value="chrome"/>
   <parameter name="URL" value="http://swb.cureaccelerator.org"/>
+  <listeners>
+    <listener class-name="listener.TestNGListener"/>
+  </listeners>
   <test name="Home Page Test with chrome(failed)">
     <parameter name="browser" value="chrome"/>
     <parameter name="URL" value="http://swb.cureaccelerator.org"/>
     <classes>
       <class name="com.cure.softweb.RUN.HomePage">
         <methods>
+          <include name="login" invocation-numbers="0"/>
           <include name="initiateBrowsers"/>
-          <include name="createsp2"/>
+          <include name="createsp2" invocation-numbers="0"/>
+          <include name="createsp1" invocation-numbers="0"/>
         </methods>
       </class> <!-- com.cure.softweb.RUN.HomePage -->
     </classes>

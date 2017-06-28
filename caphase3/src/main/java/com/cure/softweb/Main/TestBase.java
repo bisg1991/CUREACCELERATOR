@@ -6,15 +6,19 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.ITestResult;
+
+import customreports.Reports;
 
 
 
 public class TestBase {
 	
-	protected WebDriver driver;
+	public WebDriver driver;
     public WebActions act;
     public CommonFunctionsLib cfl;
     public Xls_Reader xl;
+    public Reports rp;
 	
 	public void selectBrowser(String browser, String URL) {
 		   if (browser.equals("chrome")) {
@@ -24,16 +28,15 @@ public class TestBase {
 				driver.manage().window().maximize();
 				getUrl(URL);
 				act = new WebActions(driver);
+				rp=new Reports(driver);
 				
 			} else if (browser.equals("firefox")) {
-				System.out.println(System.getProperty("user.dir"));
-				System.setProperty("webdriver.gecko.driver", "E://GECKO//geckodriver.exe");
-				DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-				capabilities.setCapability("marionette", true);
-				driver = new FirefoxDriver(capabilities);
+				System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "/BROWSERDRIVERS/geckodriver.exe");
+				driver = new FirefoxDriver();
 				driver.manage().window().maximize();
 				getUrl(URL);
 				act = new WebActions(driver);
+				rp=new Reports(driver);
 			}
 		}
 

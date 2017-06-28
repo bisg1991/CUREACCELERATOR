@@ -10,13 +10,14 @@ public class ProposalDiseaseDetail {
 	
 	WebDriver driver;
 	WebActions webs;
-	
+	ProposalProjectOverview ppo;
 	
 	public ProposalDiseaseDetail(WebDriver driver) {
 
 		PageFactory.initElements(driver, this);
         this.driver = driver;
         webs=new WebActions(driver);
+        ppo=new ProposalProjectOverview(driver);
 	}
 
     //Disease detail section PAGE OBJECTS.
@@ -39,7 +40,14 @@ public class ProposalDiseaseDetail {
 	By txtukbased= By.id("disease_details_omic_datasets_available_ifr"); //IFRAME id for omic data sets field.
 	
 	
-	
+	public void enterdieseasedetail(String EstimatedPrevalance, String CurrentTreatment, String AnnualDirectHealthcare, String AnnualNonHealthcare) throws InterruptedException{
+		
+		webs.iframeswitch(txtestimatedprevalance, EstimatedPrevalance);
+		webs.iframeswitch(txtcurrenttreatment, CurrentTreatment);
+		driver.findElement(txtannualdirecthealthcare).sendKeys(AnnualDirectHealthcare);
+		driver.findElement(annualnonhealthcare).sendKeys(AnnualNonHealthcare);
+		driver.findElement(ppo.btnNext).click();
+	}
 	
 
 }

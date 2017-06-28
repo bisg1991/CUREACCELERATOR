@@ -12,13 +12,14 @@ public class ProposalProjectFunding {
 	
 	WebDriver driver;
 	WebActions webs;
-	
+	ProposalProjectOverview ppo;
 	
 	public ProposalProjectFunding(WebDriver driver) {
 
 		PageFactory.initElements(driver, this);
         this.driver = driver;
         webs=new WebActions(driver);
+        ppo= new ProposalProjectOverview(driver);
 	}
 
 	// Project Funding:
@@ -57,6 +58,7 @@ public class ProposalProjectFunding {
 		driver.findElement(txtothercost).sendKeys(othercost);
 		calculatetotalvalue();
 		driver.findElement(chkboxcofunding).click();
+		driver.findElement(ppo.btnNext).click();
 		
 	}
 	
