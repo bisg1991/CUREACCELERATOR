@@ -24,5 +24,8 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.testng.TESTNG_CONTAINER"/>
 	<classpathentry kind="src" path="/autopractice"/>
+	<classpathentry kind="lib" path="E:/Selenium Java/guice-3.0.jar/guice-3.0.jar"/>
+	<classpathentry kind="lib" path="E:/Selenium Java/REPORT-Ng/reportng-1.1.4.jar"/>
+	<classpathentry kind="lib" path="E:/Selenium Java/velocity-dep-1.4.jar/velocity-dep-1.4.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

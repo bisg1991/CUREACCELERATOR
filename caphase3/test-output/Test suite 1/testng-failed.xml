@@ -14,8 +14,6 @@
         <methods>
           <include name="login" invocation-numbers="0"/>
           <include name="initiateBrowsers"/>
-          <include name="createsp2" invocation-numbers="0"/>
-          <include name="createsp1" invocation-numbers="0"/>
         </methods>
       </class> <!-- com.cure.softweb.RUN.HomePage -->
     </classes>

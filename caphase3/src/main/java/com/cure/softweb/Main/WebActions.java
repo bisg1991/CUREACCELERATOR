@@ -984,5 +984,12 @@ public class WebActions {
 		    el.click();
 		}
 	}
+   
+	public String stringtointeger(String stringData){
+		String toconvert=stringData;
+    	int i = Double.valueOf(toconvert).intValue();
+    	String newInt = Integer.toString(i);
+    	return newInt;
+	}
 }
 

@@ -53,6 +53,7 @@ public class TestNGListener implements ITestListener{
 		
 
 	public void onTestFailure(ITestResult result) {
+		
 		this.driver = ((TestBase)result.getInstance()).driver;
 		if(!result.isSuccess()){
 			Calendar calendar = Calendar.getInstance();

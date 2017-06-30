@@ -12,8 +12,11 @@ import org.testng.annotations.Test;
 import com.cure.softweb.Main.TestBase;
 import com.cure.softweb.PageObjects.HOMEPAGE;
 import com.cure.softweb.PageObjects.ProposalDiseaseDetail;
+import com.cure.softweb.PageObjects.ProposalEvidence;
+import com.cure.softweb.PageObjects.ProposalPatentsApprovals;
 import com.cure.softweb.PageObjects.ProposalProjectFunding;
 import com.cure.softweb.PageObjects.ProposalProjectOverview;
+import com.cure.softweb.PageObjects.ProposalProjectSettings;
 import com.cure.softweb.PageObjects.ProposalTrialDetails;
 
 public class HomePage  extends TestBase {
@@ -23,6 +26,9 @@ public class HomePage  extends TestBase {
 	ProposalProjectFunding ppf;
 	ProposalDiseaseDetail pdd;
 	ProposalTrialDetails ptd;
+	ProposalEvidence pe;
+	ProposalPatentsApprovals ppa;
+	ProposalProjectSettings pps;
 	public int indexSI = 1;
 	
 	// Using Parameters passing the data
@@ -52,7 +58,6 @@ public class HomePage  extends TestBase {
 		} catch (Exception e) {
 			hp.verifyafterloginmessage();
 			System.out.println("Already logged in with social account Gmail");
-			rp.updateResult(1, "HomePage", "FAIL", "login");
 		}
 	}
    
@@ -62,12 +67,12 @@ public class HomePage  extends TestBase {
 		return getData("ProjectOverviewData.xlsx", "Sheet1");
 	}
     @Test (priority=2, dataProvider="Project Overview database") 
-    public void createsp1(String ProjectTitle, String PublicTitle, String PublicAbstract, String Investigator, String Institutions, String Category, String Conditions, String Background, String Treatments) throws Exception{
+    public void createsp1(String ProjectTitle, String PublicTitle, String PublicAbstract, String Investigator, String Institutions, String Category, String Conditions, String Background, String Treatments, String ResearchDescription) throws Exception{
     	sp=new ProposalProjectOverview(driver);
     	System.out.println("The driver for the priority test 2 is "+ driver);
     	act.clickByJS(sp.btnspecialproposal);
-    	sp.enterprojectoverview(ProjectTitle, PublicTitle, PublicAbstract, Investigator, Institutions, Category, Conditions, Background, Treatments);
-    	rp.updateResult(1, "HomePage", "PASS", "createsp1");
+    	sp.enterprojectoverview(ProjectTitle, PublicTitle, PublicAbstract, Investigator, Institutions, Category, Conditions, Background, Treatments, ResearchDescription);
+    	
     }
     
     //DATA PROVIDER for Project Funding
@@ -80,7 +85,6 @@ public class HomePage  extends TestBase {
     	ppf=new ProposalProjectFunding(driver);
     	System.out.println("The driver for the priority test 3 is "+ driver);
     	ppf.enterprojectfunding(ExistingProjFund, ReqProjFund, BudgetPersonnel, BudgetPatientCosts, BudgetCoreFacilities, BudgetSupplies, BudgetOmicData, BudgetOther);
-    	rp.updateResult(1, "HomePage", "PASS", "createsp2");
     }
     
     //DATA PROVIDER for Disease Details
@@ -95,6 +99,7 @@ public class HomePage  extends TestBase {
         pdd.enterdieseasedetail(EstimatedPrevalance, CurrentTreatment, AnnualDirectHealthcare, AnnualNonHealthcare);    	
     }
    
+    // DATA PROVIDER for Trial Details
     @DataProvider(name="Trial details data")
     public String[][] getdata5(){
     	return getData("TrialDetailsData.xlsx", "Sheet1");
@@ -103,7 +108,48 @@ public class HomePage  extends TestBase {
     public void createsp4(String TreatmentArm1,String EstimatedTrialLength,String ActiveCare, String FollowUp, String SafetyConcerns, String HealthImpact, String ReductionInHealthCare, String Upload1, String Upload2, String Upload3, String BioSketch) throws InterruptedException{
     	ptd =new ProposalTrialDetails(driver);
     	System.out.println("The driver for the priority test 5 is "+ driver);
-    	ptd.entertrialdetails(TreatmentArm1,EstimatedTrialLength,ActiveCare, FollowUp,SafetyConcerns, HealthImpact, ReductionInHealthCare, Upload1, Upload2, Upload3, BioSketch);
+    	String EstimatedTrial=act.stringtointeger(EstimatedTrialLength);
+    	String ActiveCares=act.stringtointeger(ActiveCare);
+    	String followups=act.stringtointeger(FollowUp);
+    	ptd.entertrialdetails(TreatmentArm1,EstimatedTrial,ActiveCares, followups,SafetyConcerns, HealthImpact, ReductionInHealthCare, Upload1, Upload2, Upload3, BioSketch);
+    }
+    
+    //DATA PROVIDER for Evidence details
+    @DataProvider(name="Evidence details data")
+    public String[][] getdata6(){
+    	return getData("EvidenceData.xlsx", "Sheet1");
+    }
+    @Test(priority=6, dataProvider="Evidence details data")
+    public void createsp5(String ResearchIdea, String Observational) throws InterruptedException{
+    	pe=new ProposalEvidence(driver);
+    	System.out.println("The driver for the priority test 6 is "+ driver);
+    	pe.enterevidence(ResearchIdea, Observational);
+    }
+    
+    //DATA PROVIDER for Patents and approvals details
+    @DataProvider(name="Patents and approval details data")
+    public String[][] getdata7(){
+    	return getData("PatentsAndApproval.xlsx", "Sheet1");
+    }
+    @Test(priority=7, dataProvider="Patents and approval details data")
+    public void createsp6(String Patentissued,String OrphanDrugRegistration,String EMAFDA){
+    	ppa= new ProposalPatentsApprovals(driver);
+    	System.out.println("The driver for the priority test 7 is "+ driver);
+    	ppa.enterpatentsdetails(Patentissued, OrphanDrugRegistration, EMAFDA);
+    }
+    
+    
+    //DATA PROVIDER for Patents and approvals details
+    @DataProvider(name="Project Settings details data")
+    public String[][] getdata8(){
+    	return getData("ProjectSettingData.xlsx", "Sheet1");
+    }
+    @Test(priority=8,dataProvider="Project Settings details data")
+    public void createsp7(String FIRSTNAME1, String LASTNAME1, String EMAIL1,String FIRSTNAME2,String LASTNAME2,String EMAIL2,String FIRSTNAME3,String LASTNAME3,String EMAIL3) throws InterruptedException{
+    	pps= new ProposalProjectSettings(driver);
+    	System.out.println("The driver for the priority test 8 is "+ driver);
+    	pps.enteremail(FIRSTNAME1, LASTNAME1, EMAIL1, FIRSTNAME2, LASTNAME2, EMAIL2, FIRSTNAME3, LASTNAME3, EMAIL3);
+        pps.proposalsuccessmsg();
     }
     
     

@@ -88,7 +88,7 @@ public class ProposalProjectOverview{
 	
 	
 	//Method to create special proposal
-	public void enterprojectoverview(String protitle, String pubtitle, String pubabs, String principal, String institution, String diecat, String diecond, String diebackgrnd, String treatment) throws Exception{
+	public void enterprojectoverview(String protitle, String pubtitle, String pubabs, String principal, String institution, String diecat, String diecond, String diebackgrnd, String treatment, String ResearchDescription) throws Exception{
 		
 		
 		driver.findElement(btnokproceednote).click();
@@ -107,6 +107,7 @@ public class ProposalProjectOverview{
 		driver.findElement(txttreatments).sendKeys(treatment);
 		Thread.sleep(3000);
 		driver.findElement(txttreatments).sendKeys(Keys.ENTER);
+		webs.iframeswitch(txtresearchdescription, ResearchDescription);
 		driver.findElement(btnNext).click();
 	}
 	
