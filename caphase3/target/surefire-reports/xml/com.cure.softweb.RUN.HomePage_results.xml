@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Home Page Test with chrome"
+           tests="1"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="16.729">
+  <properties />
+  
+  
+            <testcase name="login" time="16.729" classname="com.cure.softweb.RUN.HomePage" />
+      
+</testsuite>

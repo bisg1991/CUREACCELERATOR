@@ -3,8 +3,7 @@
 <suite name="Test suite 1" verbose="1" >
     <listeners>
        <!--<listener class-name="listener.TestNGListener"/>-->
-        <listener class-name="org.uncommons.reportng.HTMLReporter"/>
-        <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+       <listener class-name="listener.TestNGCustomReportListener"/>
     </listeners>    
  <test name="Home Page Test with chrome" >
       <parameter name="browser" value="chrome"/>

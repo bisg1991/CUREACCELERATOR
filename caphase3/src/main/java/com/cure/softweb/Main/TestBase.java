@@ -9,6 +9,8 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.ITestResult;
 
 import customreports.Reports;
+import emailReports.SendMailSSLWithAttachment;
+import listener.TestNGCustomReportListener;
 
 
 
@@ -19,7 +21,9 @@ public class TestBase {
     public CommonFunctionsLib cfl;
     public Xls_Reader xl;
     public Reports rp;
-	
+    public SendMailSSLWithAttachment email;
+	public TestNGCustomReportListener tncrl;
+    
 	public void selectBrowser(String browser, String URL) {
 		   if (browser.equals("chrome")) {
 				System.out.println(System.getProperty("user.dir"));
@@ -29,6 +33,8 @@ public class TestBase {
 				getUrl(URL);
 				act = new WebActions(driver);
 				rp=new Reports(driver);
+				email=new SendMailSSLWithAttachment(driver);
+				
 				
 			} else if (browser.equals("firefox")) {
 				System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "/BROWSERDRIVERS/geckodriver.exe");
@@ -37,6 +43,8 @@ public class TestBase {
 				getUrl(URL);
 				act = new WebActions(driver);
 				rp=new Reports(driver);
+				email=new SendMailSSLWithAttachment(driver);
+				
 			}
 		}
 

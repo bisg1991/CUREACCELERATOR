@@ -15,6 +15,7 @@ import java.net.URL;
 import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.function.Function;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -66,11 +67,11 @@ public class WebActions {
 
 	
 	
-	public WebElement isElementLoaded(WebElement elementToBeLoaded) {
+	/*public WebElement isElementLoaded(WebElement elementToBeLoaded) {
 	    WebDriverWait wait = new WebDriverWait(driver, 15);
 	    WebElement element = wait.until(ExpectedConditions.visibilityOf(elementToBeLoaded));
 	    return element;
-	}
+	}*/
 	
 	
 	
@@ -159,13 +160,13 @@ public class WebActions {
 		return el;
 	}
 
-	public void performClick(WebElement el, WebDriver driver) {
+	/*public void performClick(WebElement el, WebDriver driver) {
 		WebDriverWait wait = new WebDriverWait(driver, 10);
-		el = wait.until(ExpectedConditions.elementToBeClickable(el));
+		el = wait.until((Function<? super WebDriver, V>) ExpectedConditions.elementToBeClickable(el));
 		Actions a = new Actions(driver);
 		a.moveToElement(el).click().perform();
 		//CommonFunctionsLib.sleep(3);
-	}
+	}*/
 
 	public boolean isDisplayed(WebElement el) {
 		if (el == null) {
@@ -233,14 +234,14 @@ public class WebActions {
 		final String message = "Element never became clickable after '%d' seconds" + waitSeconds;
 		WebDriverWait wait = new WebDriverWait(driver, waitSeconds);
 		wait.withMessage(message).ignoring(StaleElementReferenceException.class);
-		wait.until(new ExpectedCondition<WebElement>() {
+		/*wait.until(new ExpectedCondition<WebElement>() {
 			public WebElement apply(WebDriver webDriver) {
 				if (isClickable(el)) {
 					return el;
 				}
 				return null;
 			}
-		});
+		});*/
 		return el;
 	}
 

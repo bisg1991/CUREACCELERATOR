@@ -2,6 +2,7 @@ package com.cure.softweb.RUN;
 
 import java.io.IOException;
 
+import org.apache.commons.mail.EmailException;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
@@ -36,6 +37,7 @@ public class HomePage  extends TestBase {
 	@BeforeTest
 	public void initiateBrowsers(String browser, String URL){
 		 selectBrowser(browser, URL);
+		 System.out.println("Chrome browser has been initiated");
 	}
 
 	// DATA PROVIDER for Login credentials
@@ -153,11 +155,12 @@ public class HomePage  extends TestBase {
     }
     
     
-    /* @AfterTest
-     public void terminate(){
-    	 
+     @AfterTest
+     public void terminate() throws EmailException, InterruptedException{
+    	 Thread.sleep(3000);
+    	 email.sendTheEmail();
     	
-     }*/
+     }
 
 
 }

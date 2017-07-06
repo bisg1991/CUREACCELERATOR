@@ -1,4 +1,5 @@
 package emailReports;
+import java.io.File;
 import java.util.Properties;
 
 import javax.activation.DataHandler;
@@ -16,99 +17,87 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
+import org.apache.commons.mail.DefaultAuthenticator;
+import org.apache.commons.mail.Email;
+import org.apache.commons.mail.EmailAttachment;
+import org.apache.commons.mail.EmailException;
+import org.apache.commons.mail.MultiPartEmail;
+import org.apache.commons.mail.SimpleEmail;
+import org.openqa.selenium.WebDriver;
 
-public class SendMailSSLWithAttachment {
+import com.cure.softweb.Main.TestBase;
 
-	public void sendTheEmail() {
-	// Create object of Property file
-	Properties props = new Properties();
 
-	// this will set host of server- you can change based on your requirement 
-	props.put("mail.smtp.host", "smtp.gmail.com");
-
-	// set the port of socket factory 
-	props.put("mail.smtp.socketFactory.port", "465");
-
-	// set socket factory
-	props.put("mail.smtp.socketFactory.class","javax.net.ssl.SSLSocketFactory");
-
-	// set the authentication to true
-	props.put("mail.smtp.auth", "true");
-
-	// set the port of SMTP server
-	props.put("mail.smtp.port", "465");
-
-	// This will handle the complete authentication
-	Session session = Session.getDefaultInstance(props,
-
-			new javax.mail.Authenticator() {
-
-				protected PasswordAuthentication getPasswordAuthentication() {
-
-				return new PasswordAuthentication("bsoftwebsolutions@gmail.com", "testing!123");
-
-				}
-
-			});
-
-	try {
-
-		// Create object of MimeMessage class
-		Message message = new MimeMessage(session);
-
-		// Set the from address
-		message.setFrom(new InternetAddress("biswajit.ghosh@softwebsolutions.com"));
-
-		// Set the recipient address
-		message.setRecipients(Message.RecipientType.TO,InternetAddress.parse("bsoftwebsolutions@gmail.com"));
-        
-        // Add the subject link
-		message.setSubject("Reports for the scripts run for creating special proposal");
-
-		// Create object to add multimedia type content
-		BodyPart messageBodyPart1 = new MimeBodyPart();
-
-		// Set the body of email
-		messageBodyPart1.setText("Body of the Email");
-
-		// Create another object to add another content
-		MimeBodyPart messageBodyPart2 = new MimeBodyPart();
-
-		// Mention the file which you want to send
-		String filename = "G:\\a.xlsx";
-
-		// Create data source and pass the filename
-		DataSource source = new FileDataSource(filename);
-
-		// set the handler
-		messageBodyPart2.setDataHandler(new DataHandler(source));
-
-		// set the file
-		messageBodyPart2.setFileName(filename);
-
-		// Create object of MimeMultipart class
-		Multipart multipart = new MimeMultipart();
-
-		// add body part 1
-		multipart.addBodyPart(messageBodyPart2);
-
-		// add body part 2
-		multipart.addBodyPart(messageBodyPart1);
-
-		// set the content
-		message.setContent(multipart);
-
-		// finally send the email
-		Transport.send(message);
-
-		System.out.println("=====Email Sent=====");
-
-	} catch (MessagingException e) {
-
-		throw new RuntimeException(e);
-
+public class SendMailSSLWithAttachment extends TestBase {
+	
+	WebDriver driver;
+	public SendMailSSLWithAttachment(WebDriver driver){
+		this.driver=driver;
 	}
 
-}
+	public void sendTheEmail() throws EmailException {
+	
+		final String username = "biswajitgqa@gmail.com";
+		final String password = "testing#123";
 
+		Properties props = new Properties();
+		props.put("mail.smtp.auth", "true");
+		props.put("mail.smtp.starttls.enable", "true");
+		props.put("mail.smtp.host", "smtp.gmail.com");
+		props.put("mail.smtp.port", "587");
+		props.put("java.net.preferIPv4Stack", "true");
+		Session session = Session.getInstance(props,
+		  new javax.mail.Authenticator() {
+		  protected PasswordAuthentication getPasswordAuthentication() {
+		    return new PasswordAuthentication(username, password);
+		}
+		});
+
+		try {
+
+		Message message = new MimeMessage(session);
+		message.setFrom(new InternetAddress("YourEmail"));
+		message.setRecipients(Message.RecipientType.TO,
+		InternetAddress.parse("bsoftwebsolutions@gmail.com"));
+		message.setSubject("Cure Accelrator Test results report");
+
+
+
+		BodyPart messageBodyPart1 = new MimeBodyPart();  
+		messageBodyPart1.setText("Please refer the attached reports for the results of the Test run.");  
+
+		//4) create new MimeBodyPart object and set DataHandler object to this object      
+		MimeBodyPart messageBodyPart2 = new MimeBodyPart();  
+		String file = System.getProperty("user.dir")+"\\test-output\\"+"custom-emailable-report.html";
+	    
+	
+	    /*DataSource source = new FileDataSource(filename);  
+		messageBodyPart2.setDataHandler(new DataHandler(source));  
+		messageBodyPart2.setFileName(filename); */ 
+        
+	    DataSource source = new FileDataSource(file);
+        messageBodyPart2.setDataHandler(new DataHandler(source));
+        messageBodyPart2.setFileName(file);
+
+		//5) create Multipart object and add MimeBodyPart objects to this object      
+		Multipart multipart = new MimeMultipart();  
+		multipart.addBodyPart(messageBodyPart1);  
+		multipart.addBodyPart(messageBodyPart2);  
+
+		//6) set the multiplart object to the message object  
+		message.setContent(multipart);  
+		Transport.send(message);
+
+		System.out.println("Mail Sent Successfully");
+   
+	    }
+	      
+	    catch (MessagingException e){
+		
+	    	throw new RuntimeException(e);
+		}
+
+	}
 }
+	
+
