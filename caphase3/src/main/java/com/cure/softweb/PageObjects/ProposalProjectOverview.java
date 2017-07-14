@@ -32,6 +32,9 @@ public class ProposalProjectOverview{
 	
 	By btnokproceednote = By.xpath("//html/body/main/div/section/div[3]/div/div[2]/a"); //Click on the proceed button of the note pop up
 	
+	// Click on the Regular proposal button
+	By btnregularproject = By.xpath("//div[@class='dashboard__actions']/div[2]/div[2]/a");
+	By btnBeginProposal= By.xpath("//main[@id='site-main']/div/section/div/div[3]/a");
 	
 	//Project Overview section.
 	
@@ -111,5 +114,17 @@ public class ProposalProjectOverview{
 		driver.findElement(btnNext).click();
 	}
 	
-	
+	// Method to create Regular proposal
+	public void enterprojectoverviewregular(String protitle, String pubtitle, String pubabs, String principal) throws InterruptedException{
+		
+		driver.findElement(btnBeginProposal).click();
+		driver.findElement(txtprojecttitle).sendKeys(protitle);
+		driver.findElement(txtpublictitle).sendKeys(pubtitle);
+		webs.iframeswitch(txtpublicabstractiframe, pubabs);
+		driver.findElement(txtprincipalinvestigator).sendKeys(principal);
+		
+		
+		
+		
+	}
 }

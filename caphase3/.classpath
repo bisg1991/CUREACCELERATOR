@@ -26,5 +26,14 @@
 	<classpathentry exported="true" kind="lib" path="E:/Selenium Java/guice-3.0.jar/guice-3.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="E:/Selenium Java/REPORT-Ng/reportng-1.1.4.jar"/>
 	<classpathentry exported="true" kind="lib" path="E:/Selenium Java/velocity-dep-1.4.jar/velocity-dep-1.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Biswajit.Ghosh/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="log4j"/>
+			<attribute name="maven.artifactId" value="log4j"/>
+			<attribute name="maven.version" value="1.2.17"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

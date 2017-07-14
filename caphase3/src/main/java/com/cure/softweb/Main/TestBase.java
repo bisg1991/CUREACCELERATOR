@@ -1,7 +1,10 @@
 package com.cure.softweb.Main;
 
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Logger;
 
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -11,7 +14,8 @@ import org.testng.ITestResult;
 import customreports.Reports;
 import emailReports.SendMailSSLWithAttachment;
 import listener.TestNGCustomReportListener;
-
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.PropertyConfigurator;
 
 
 public class TestBase {
@@ -23,6 +27,14 @@ public class TestBase {
     public Reports rp;
     public SendMailSSLWithAttachment email;
 	public TestNGCustomReportListener tncrl;
+	public static final Logger log=Logger.getLogger(TestBase.class.getName());
+	
+	
+	public void loginit(){
+		String path="/caphase3/Log4j.properties";
+		BasicConfigurator.configure();
+		PropertyConfigurator.configure(path);
+	}
     
 	public void selectBrowser(String browser, String URL) {
 		   if (browser.equals("chrome")) {
@@ -31,6 +43,7 @@ public class TestBase {
 				driver = new ChromeDriver();
 				driver.manage().window().maximize();
 				getUrl(URL);
+				log.info("===========Browser launched and URL has been entered=============");
 				act = new WebActions(driver);
 				rp=new Reports(driver);
 				email=new SendMailSSLWithAttachment(driver);
@@ -41,6 +54,7 @@ public class TestBase {
 				driver = new FirefoxDriver();
 				driver.manage().window().maximize();
 				getUrl(URL);
+				log.info("===========Browser launched and URL has been entered=============");
 				act = new WebActions(driver);
 				rp=new Reports(driver);
 				email=new SendMailSSLWithAttachment(driver);

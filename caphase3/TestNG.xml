@@ -5,11 +5,11 @@
        <!--<listener class-name="listener.TestNGListener"/>-->
        <listener class-name="listener.TestNGCustomReportListener"/>
     </listeners>    
- <test name="Home Page Test with chrome" >
+ <test name="Create a special proposal with chrome" >
       <parameter name="browser" value="chrome"/>
       <parameter name="URL" value="http://swb.cureaccelerator.org"/>
     <classes>
-      <class name="com.cure.softweb.RUN.HomePage"/>
+      <class name="com.cure.softweb.RUN.SpecialProposal"/>
     </classes>
  </test>
   
