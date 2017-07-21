@@ -2,5 +2,7 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="org.testng.annotations.Test"/>
 <fullyQualifiedTypeName name="com.cure.softweb.PageObjects.HOMEPAGE"/>
+<fullyQualifiedTypeName name="com.cure.softweb.Main.TestBase"/>
 <fullyQualifiedTypeName name="org.openqa.selenium.WebDriver"/>
+<fullyQualifiedTypeName name="emailReports.SendMailSSLWithAttachment"/>
 </qualifiedTypeNameHistroy>

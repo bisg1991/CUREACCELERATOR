@@ -2,6 +2,7 @@ package com.cure.softweb.PageObjects;
 
 import java.util.concurrent.TimeUnit;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -22,6 +23,8 @@ public class ProposalProjectFunding {
         ppo= new ProposalProjectOverview(driver);
 	}
 
+	public static final Logger lfund= Logger.getLogger(ProposalProjectFunding.class.getName());
+	
 	// Project Funding:
 	
 	// Existing Project Funding
@@ -41,6 +44,9 @@ public class ProposalProjectFunding {
 	//Total calculation of the Budget Breakdown
 	By total=By.xpath("//div[@class='budget__amount']/input[@id='estimated_overall_project_cost']");
 	
+	// IFRAME id for What would you be able to do to speed up, strengthen....
+	By txtspeedupandstrengthen= By.id("budget_breakdown_speed_up_ifr");
+	
 	//Co-funding agreement
 	By chkboxcofunding= By.xpath("//input[@id='understand_required_to_fund' and @type='checkbox']");
 	
@@ -48,6 +54,36 @@ public class ProposalProjectFunding {
     public void enterprojectfunding(String a,String b,String personnel, String patientcost, String corefacilities, String supply, String omic, String othercost) throws InterruptedException{
 		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		lfund.info("---PROJECT FUNDING SECTION----");
+		driver.findElement(txtexistingprojfunding).sendKeys(a);
+		lfund.info("Entered exisitng project funding amount");
+		driver.findElement(txtrequestedprojfunding).sendKeys(b);
+		lfund.info("Entered requested project funding amount");
+		driver.findElement(txtpersonnel).sendKeys(personnel);
+		lfund.info("Entered personnel funding amount");
+		driver.findElement(txtpatientcost).sendKeys(patientcost);
+		lfund.info("Entered Patient costs funding amount");
+		driver.findElement(txtcorefacilities).sendKeys(corefacilities);
+		lfund.info("Entered Core Facilities funding amount");
+		driver.findElement(txtsupplies).sendKeys(supply);
+		lfund.info("Entered Supplies funding amount");
+		driver.findElement(txtomicdata).sendKeys(omic);
+		lfund.info("Entered omic data funding amount");
+		driver.findElement(txtothercost).sendKeys(othercost);
+		lfund.info("Entered other costs funding amount");
+		calculatetotalvalue();
+		driver.findElement(chkboxcofunding).click();
+		lfund.info("Checked the Co-Funding Agreement");
+		driver.findElement(ppo.btnNext).click();
+		
+	}
+	
+	public void calculatetotalvalue(){
+		System.out.println("The total value for the Budget Breakdown is "+ driver.findElement(total).getAttribute("value"));
+	}
+	
+	public void enterprojectfundingregular(String a,String b,String personnel, String patientcost, String corefacilities, String supply, String omic, String othercost, String SpeedUp) throws InterruptedException{
+		
 		driver.findElement(txtexistingprojfunding).sendKeys(a);
 		driver.findElement(txtrequestedprojfunding).sendKeys(b);
 		driver.findElement(txtpersonnel).sendKeys(personnel);
@@ -57,13 +93,12 @@ public class ProposalProjectFunding {
 		driver.findElement(txtomicdata).sendKeys(omic);
 		driver.findElement(txtothercost).sendKeys(othercost);
 		calculatetotalvalue();
+		webs.iframeswitch(txtspeedupandstrengthen, SpeedUp);
 		driver.findElement(chkboxcofunding).click();
 		driver.findElement(ppo.btnNext).click();
-		
 	}
 	
-	public void calculatetotalvalue(){
-		System.out.println("The total value for the Budget Breakdown is "+ driver.findElement(total).getAttribute("value"));
-	}
+	
+	
 	
 }

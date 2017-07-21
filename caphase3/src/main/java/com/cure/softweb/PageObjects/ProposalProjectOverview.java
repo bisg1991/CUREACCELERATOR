@@ -2,6 +2,7 @@ package com.cure.softweb.PageObjects;
 
 import java.util.concurrent.TimeUnit;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Keys;
@@ -25,6 +26,9 @@ public class ProposalProjectOverview{
         webs=new WebActions(driver);
 	}
 
+	public static final Logger loverview= Logger.getLogger(ProposalProjectOverview.class.getName());
+	
+	
 	// Click on the special proposal button
 	
 	@FindBy(id="btnspecialproject") //click on the special proposal button
@@ -33,16 +37,24 @@ public class ProposalProjectOverview{
 	By btnokproceednote = By.xpath("//html/body/main/div/section/div[3]/div/div[2]/a"); //Click on the proceed button of the note pop up
 	
 	// Click on the Regular proposal button
-	By btnregularproject = By.xpath("//div[@class='dashboard__actions']/div[2]/div[2]/a");
+	@FindBy(xpath="//main[@id='site-main']/div/section/header/div[1]/div[2]/div[2]/a")
+	public WebElement btnregularproject;
+	
 	By btnBeginProposal= By.xpath("//main[@id='site-main']/div/section/div/div[3]/a");
 	
 	//Project Overview section.
 	
-	//Enter the project title
+	//Enter the project title (for special)
 	By txtprojecttitle = By.xpath("//html/body/main/div/section/div[3]/form/div[2]/div[1]/div[1]/div[2]/div[1]/textarea");
 	
-	//Enter the public title for the project.
+	//Enter the project title (for Regular)
+	By txtprojecttitlereg= By.xpath("//html/body/main/div/section/div[2]/form/div[2]/div[1]/div[1]/div[2]/div[1]/textarea");
+	
+	//Enter the public title for the project (for special)
 	By txtpublictitle = By.xpath("//html/body/main/div/section/div[3]/form/div[2]/div[1]/div[1]/div[2]/div[2]/textarea");
+	
+	//Enter the public title for the project (for regular)
+	By txtpublictitlereg = By.xpath("//html/body/main/div/section/div[2]/form/div[2]/div[1]/div[1]/div[2]/div[2]/textarea");
 	
 	// IFRAME id for the public abstract field
     By txtpublicabstractiframe= By.id("public_abstract_ifr"); 
@@ -52,8 +64,11 @@ public class ProposalProjectOverview{
 	By txtpublicabstract =By.xpath("//div[@class='field-wrapper length-limit']/div/div/div[@id='mceu_21']"); 
 	By txtpublicabstract2 =By.xpath("//body[@id='tinymce']/p");
 	
-	//Enter principal investigator name
+	//Enter principal investigator name (for special)
 	By txtprincipalinvestigator= By.xpath("//html/body/main/div/section/div[3]/form/div[2]/div[1]/div[2]/div/input");
+	
+	//Enter principal investigator name (for regular)
+	By txtprincipalinvestigatorreg= By.xpath("//html/body/main/div/section/div[2]/form/div[2]/div[1]/div[2]/div/input");
 	
 	// IFRAME id for the institution involved field
 	By txtinstitutioninvolvediframe= By.id("institutions_involved_ifr"); 
@@ -95,10 +110,45 @@ public class ProposalProjectOverview{
 		
 		
 		driver.findElement(btnokproceednote).click();
+		loverview.info("***Entered the special proposal details page form*******");
+		loverview.info("---PROJECT OVERVIEW SECTION---");
 		driver.findElement(txtprojecttitle).sendKeys(protitle);
+		loverview.info("Entered the Proposal Project Title");
 		driver.findElement(txtpublictitle).sendKeys(pubtitle);
+		loverview.info("Entered the Proposal Public Title");
 		webs.iframeswitch(txtpublicabstractiframe, pubabs);
+		loverview.info("Entered the Proposal Public abstract details");
 		driver.findElement(txtprincipalinvestigator).sendKeys(principal);
+		loverview.info("Entered the Principal investigator name");
+		webs.iframeswitch(txtinstitutioninvolvediframe, institution);
+		loverview.info("Entered the Institution involved");
+		driver.findElement(txtdiseasecategory).sendKeys(diecat);
+		Thread.sleep(3000);
+		loverview.info("Entered the Disease category");
+		driver.findElement(txtdiseasecategory).sendKeys(Keys.ENTER);
+		driver.findElement(txtdiseasecondition).sendKeys(diecond);
+		Thread.sleep(3000);
+		driver.findElement(txtdiseasecondition).sendKeys(Keys.ENTER);
+		loverview.info("Entered the Disease condition");
+		webs.iframeswitch(txtdiseasebackground, diebackgrnd);
+		loverview.info("Entered the Disease Back ground details");
+		driver.findElement(txttreatments).sendKeys(treatment);
+		Thread.sleep(3000);
+		driver.findElement(txttreatments).sendKeys(Keys.ENTER);
+		loverview.info("Entered the Treatments");
+		webs.iframeswitch(txtresearchdescription, ResearchDescription);
+		loverview.info("Entered the Research description details");
+		driver.findElement(btnNext).click();
+	}
+	
+	// Method to create Regular proposal
+	public void enterprojectoverviewregular(String protitle, String pubtitle, String pubabs, String principal, String institution, String diecat, String diecond, String diebackgrnd, String treatment, String ResearchDescription) throws InterruptedException{
+		
+		driver.findElement(btnBeginProposal).click();
+		driver.findElement(txtprojecttitlereg).sendKeys(protitle);
+		driver.findElement(txtpublictitlereg).sendKeys(pubtitle);
+		webs.iframeswitch(txtpublicabstractiframe, pubabs);
+		driver.findElement(txtprincipalinvestigatorreg).sendKeys(principal);
 		webs.iframeswitch(txtinstitutioninvolvediframe, institution);
 		driver.findElement(txtdiseasecategory).sendKeys(diecat);
 		Thread.sleep(3000);
@@ -112,18 +162,6 @@ public class ProposalProjectOverview{
 		driver.findElement(txttreatments).sendKeys(Keys.ENTER);
 		webs.iframeswitch(txtresearchdescription, ResearchDescription);
 		driver.findElement(btnNext).click();
-	}
-	
-	// Method to create Regular proposal
-	public void enterprojectoverviewregular(String protitle, String pubtitle, String pubabs, String principal) throws InterruptedException{
-		
-		driver.findElement(btnBeginProposal).click();
-		driver.findElement(txtprojecttitle).sendKeys(protitle);
-		driver.findElement(txtpublictitle).sendKeys(pubtitle);
-		webs.iframeswitch(txtpublicabstractiframe, pubabs);
-		driver.findElement(txtprincipalinvestigator).sendKeys(principal);
-		
-		
 		
 		
 	}

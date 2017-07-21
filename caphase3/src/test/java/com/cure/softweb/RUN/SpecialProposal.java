@@ -56,7 +56,6 @@ public class SpecialProposal  extends TestBase {
 		try {
 			hp.loginviagooglebutton(emails, pass);
 			//hp.verifyafterloginmessage();
-			rp.updateResult(1, "HomePage", "PASS", "login");
 		} catch (Exception e) {
 			hp.verifyafterloginmessage();
 			System.out.println("Already logged in with social account Gmail");
@@ -141,7 +140,7 @@ public class SpecialProposal  extends TestBase {
     }
     
     
-    //DATA PROVIDER for Patents and approvals details
+    //DATA PROVIDER for Project Settings
     @DataProvider(name="Project Settings details data")
     public String[][] getdata8(){
     	return getData("ProjectSettingData.xlsx", "Sheet1");

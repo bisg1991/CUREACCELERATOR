@@ -1,5 +1,6 @@
 package com.cure.softweb.PageObjects;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,6 +19,9 @@ public class HOMEPAGE {
 
 	}
 
+	public static final Logger lhmepge=Logger.getLogger(HOMEPAGE.class.getName());
+	
+	
 	// Login via social page objects
 	By textemail = By.xpath("//input[@id='identifierId']"); // Enter email field for gmail application
 	By btnNext = By.xpath("//div[@id='identifierNext']/content/span"); //Next button in gmail application
@@ -53,8 +57,10 @@ public class HOMEPAGE {
 	public void loginviagooglebutton(String emails, String pass) throws InterruptedException {
 
 		driver.findElement(textemail).sendKeys(emails);
+		lhmepge.info("Enter the email address associated with the account");
 		driver.findElement(btnNext).click();
 		driver.findElement(textpass).sendKeys(pass);
+		lhmepge.info("Enter the password associated with the account");
 		Thread.sleep(1000);
 		driver.findElement(btnNext2).click();
 	}

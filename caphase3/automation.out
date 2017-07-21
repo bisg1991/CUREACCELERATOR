@@ -1,0 +1,54 @@
+2017-07-20 12:30:54 INFO  HOMEPAGE:60 - Enter the email address associated with the account
+2017-07-20 12:30:56 INFO  HOMEPAGE:63 - Enter the password associated with the account
+2017-07-20 12:31:04 INFO  ProposalProjectOverview:113 - ***Entered the special proposal details page form*******
+2017-07-20 12:31:04 INFO  ProposalProjectOverview:114 - ---PROJECT OVERVIEW SECTION---
+2017-07-20 12:31:11 INFO  ProposalProjectOverview:116 - Entered the Proposal Project Title
+2017-07-20 12:31:11 INFO  ProposalProjectOverview:118 - Entered the Proposal Public Title
+2017-07-20 12:31:17 INFO  ProposalProjectOverview:120 - Entered the Proposal Public abstract details
+2017-07-20 12:31:17 INFO  ProposalProjectOverview:122 - Entered the Principal investigator name
+2017-07-20 12:31:19 INFO  ProposalProjectOverview:124 - Entered the Institution involved
+2017-07-20 12:31:22 INFO  ProposalProjectOverview:127 - Entered the Disease category
+2017-07-20 12:31:26 INFO  ProposalProjectOverview:132 - Entered the Disease condition
+2017-07-20 12:31:27 INFO  ProposalProjectOverview:134 - Entered the Disease Back ground details
+2017-07-20 12:31:31 INFO  ProposalProjectOverview:138 - Entered the Treatments
+2017-07-20 12:31:39 INFO  ProposalProjectOverview:140 - Entered the Research description details
+2017-07-20 12:31:40 INFO  ProposalProjectFunding:57 - ---PROJECT FUNDING SECTION----
+2017-07-20 12:31:40 INFO  ProposalProjectFunding:59 - Entered exisitng project funding amount
+2017-07-20 12:31:40 INFO  ProposalProjectFunding:61 - Entered requested project funding amount
+2017-07-20 12:31:41 INFO  ProposalProjectFunding:63 - Entered personnel funding amount
+2017-07-20 12:31:41 INFO  ProposalProjectFunding:65 - Entered Patient costs funding amount
+2017-07-20 12:31:41 INFO  ProposalProjectFunding:67 - Entered Core Facilities funding amount
+2017-07-20 12:31:41 INFO  ProposalProjectFunding:69 - Entered Supplies funding amount
+2017-07-20 12:31:41 INFO  ProposalProjectFunding:71 - Entered omic data funding amount
+2017-07-20 12:31:42 INFO  ProposalProjectFunding:73 - Entered other costs funding amount
+2017-07-20 12:31:42 INFO  ProposalProjectFunding:76 - Checked the Co-Funding Agreement
+2017-07-20 12:31:42 INFO  ProposalDiseaseDetail:48 - ---DISEASE DETAIL SECTION---
+2017-07-20 12:31:43 INFO  ProposalDiseaseDetail:50 - Entered the estimated prevalance details for the proposal
+2017-07-20 12:31:45 INFO  ProposalDiseaseDetail:52 - Entered the current treatment details for the proposal
+2017-07-20 12:31:45 INFO  ProposalDiseaseDetail:54 - Entered the estimated annual direct healthcare amount for the proposal
+2017-07-20 12:31:45 INFO  ProposalDiseaseDetail:56 - Entered the estimated annual non-healthcare societal amount for the proposal
+2017-07-20 12:31:46 INFO  ProposalTrialDetails:73 - ----TRIAL DETAILS SECTION----
+2017-07-20 12:31:46 INFO  ProposalTrialDetails:75 - Checked the Project Type checkbox for the proposal
+2017-07-20 12:31:46 INFO  ProposalTrialDetails:77 - Entered the Treatment Arm #1 details
+2017-07-20 12:31:47 INFO  ProposalTrialDetails:81 - Entered the estimated trial length details
+2017-07-20 12:31:47 INFO  ProposalTrialDetails:83 - Entered the length of active care details
+2017-07-20 12:31:48 INFO  ProposalTrialDetails:85 - Entered the length of follow up details
+2017-07-20 12:31:49 INFO  ProposalTrialDetails:87 - Entered the Known safety concerns details for the proposal
+2017-07-20 12:31:50 INFO  ProposalTrialDetails:89 - Entered the expected health impact details for the proposal
+2017-07-20 12:31:52 INFO  ProposalTrialDetails:91 - Entered the erduction in health care details for the proposal
+2017-07-20 12:31:54 INFO  ProposalTrialDetails:93 - 1st File Attachment uploaded
+2017-07-20 12:31:56 INFO  ProposalTrialDetails:95 - 2nd File Attachment uploaded
+2017-07-20 12:31:58 INFO  ProposalTrialDetails:97 - 3rd File Attachment uploaded
+2017-07-20 12:32:00 INFO  ProposalTrialDetails:99 - Bio-Sketch Attachment uploaded
+2017-07-20 12:32:00 INFO  ProposalEvidence:42 - ---EVIDENCE SECTION---
+2017-07-20 12:32:06 INFO  ProposalEvidence:45 - Entered the Have you or anyone else published this research idea or disclosed it to the public in any way? details
+2017-07-20 12:32:12 INFO  ProposalEvidence:48 - Entered the published or unpublished observational data in humans details for the proposal
+2017-07-20 12:32:12 INFO  ProposalPatentsApprovals:46 - ----PATENTS AND APPROVAL SECTION----
+2017-07-20 12:32:16 INFO  ProposalPatentsApprovals:49 - Entered Is there any issued patent on the subject matter of the proposal? for the proposal
+2017-07-20 12:32:21 INFO  ProposalPatentsApprovals:52 - Entered orphan drug designation for this repurposed therapy? for the proposal
+2017-07-20 12:32:25 INFO  ProposalPatentsApprovals:55 - Entered filed an application with the EMA, FDA for the proposal
+2017-07-20 12:32:25 INFO  ProposalProjectSettings:53 - ----PROJECT SETTINGS SECTION----
+2017-07-20 12:32:27 INFO  ProposalProjectSettings:57 - Entered the First reviewer details
+2017-07-20 12:32:27 INFO  ProposalProjectSettings:62 - Entered the second reviewer details
+2017-07-20 12:32:28 INFO  ProposalProjectSettings:67 - Entered the Third reviewer details
+2017-07-20 12:32:32 INFO  ProposalProjectSettings:76 - The proposal has been created successfully and the URL is: http://swb.cureaccelerator.org/loi/specialview/897

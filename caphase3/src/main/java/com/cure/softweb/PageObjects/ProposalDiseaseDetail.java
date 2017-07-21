@@ -1,5 +1,6 @@
 package com.cure.softweb.PageObjects;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -20,6 +21,8 @@ public class ProposalDiseaseDetail {
         ppo=new ProposalProjectOverview(driver);
 	}
 
+	public static final Logger ldiedetail= Logger.getLogger(ProposalDiseaseDetail.class.getName());
+	
     //Disease detail section PAGE OBJECTS.
 	
 	//Estimated prevalence of the disease(s) in the country where the research will be carried out
@@ -42,12 +45,24 @@ public class ProposalDiseaseDetail {
 	
 	public void enterdieseasedetail(String EstimatedPrevalance, String CurrentTreatment, String AnnualDirectHealthcare, String AnnualNonHealthcare) throws InterruptedException{
 		
+		ldiedetail.info("---DISEASE DETAIL SECTION---");
+		webs.iframeswitch(txtestimatedprevalance, EstimatedPrevalance);
+		ldiedetail.info("Entered the estimated prevalance details for the proposal");
+		webs.iframeswitch(txtcurrenttreatment, CurrentTreatment);
+		ldiedetail.info("Entered the current treatment details for the proposal");
+		driver.findElement(txtannualdirecthealthcare).sendKeys(AnnualDirectHealthcare);
+		ldiedetail.info("Entered the estimated annual direct healthcare amount for the proposal");
+		driver.findElement(annualnonhealthcare).sendKeys(AnnualNonHealthcare);
+		ldiedetail.info("Entered the estimated annual non-healthcare societal amount for the proposal");
+		driver.findElement(ppo.btnNext).click();
+	}
+	
+	public void enterdiseasedetailregular(String EstimatedPrevalance, String CurrentTreatment, String AnnualDirectHealthcare, String AnnualNonHealthcare) throws InterruptedException{
 		webs.iframeswitch(txtestimatedprevalance, EstimatedPrevalance);
 		webs.iframeswitch(txtcurrenttreatment, CurrentTreatment);
 		driver.findElement(txtannualdirecthealthcare).sendKeys(AnnualDirectHealthcare);
 		driver.findElement(annualnonhealthcare).sendKeys(AnnualNonHealthcare);
 		driver.findElement(ppo.btnNext).click();
 	}
-	
 
 }

@@ -1,5 +1,6 @@
 package com.cure.softweb.PageObjects;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -20,6 +21,9 @@ public class ProposalProjectSettings {
         ppo=new ProposalProjectOverview(driver);
 	}
 
+	public static final Logger lprojsettings= Logger.getLogger(ProposalProjectSettings.class.getName());
+	
+	
     //Project Settings section
    
 	//Invite People to review this Proposal
@@ -45,17 +49,22 @@ public class ProposalProjectSettings {
 
 
     public void enteremail(String FIRSTNAME1, String LASTNAME1, String EMAIL1,String FIRSTNAME2,String LASTNAME2,String EMAIL2,String FIRSTNAME3,String LASTNAME3,String EMAIL3){
+    	
+    	lprojsettings.info("----PROJECT SETTINGS SECTION----");
     	driver.findElement(txtfirstnamerow1).sendKeys(FIRSTNAME1);
     	driver.findElement(txtlastnamerow1).sendKeys(LASTNAME1);
         driver.findElement(txtemailrow1).sendKeys(EMAIL1);
+        lprojsettings.info("Entered the First reviewer details");
         
         driver.findElement(txtfirstnamerow2).sendKeys(FIRSTNAME2);
     	driver.findElement(txtlastnamerow2).sendKeys(LASTNAME2);
         driver.findElement(txtemailrow2).sendKeys(EMAIL2);
+        lprojsettings.info("Entered the second reviewer details");
         
         driver.findElement(txtfirstnamerow3).sendKeys(FIRSTNAME3);
     	driver.findElement(txtlastnamerow3).sendKeys(LASTNAME3);
         driver.findElement(txtemailrow3).sendKeys(EMAIL3);
+        lprojsettings.info("Entered the Third reviewer details");
         
         driver.findElement(btnSave).click();
         
@@ -63,7 +72,8 @@ public class ProposalProjectSettings {
    
     public void proposalsuccessmsg() throws InterruptedException{
     	Thread.sleep(2000);
-    	System.out.println("The proposal has been created successfully and the URL is: "+driver.getCurrentUrl());
+    	//System.out.println("The proposal has been created successfully and the URL is: "+driver.getCurrentUrl());
+    	lprojsettings.info("The proposal has been created successfully and the URL is: "+driver.getCurrentUrl());
     }
 
 }

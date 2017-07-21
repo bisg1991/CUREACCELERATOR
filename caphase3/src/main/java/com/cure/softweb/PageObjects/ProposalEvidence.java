@@ -1,5 +1,6 @@
 package com.cure.softweb.PageObjects;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -20,6 +21,9 @@ public class ProposalEvidence {
         ppo=new ProposalProjectOverview(driver);
 	}
 
+	public static final Logger levidence= Logger.getLogger(ProposalEvidence.class.getName());
+	
+	
 	//Evidence section
 	
 	//Have you or anyone else published (or have a manuscript submitted on) this research idea or disclosed it to the public in any way? 
@@ -34,16 +38,27 @@ public class ProposalEvidence {
 
 
     public void enterevidence(String ResearchIdea, String Observational) throws InterruptedException{
+    	
+    	levidence.info("---EVIDENCE SECTION---");
     	driver.findElement(radioyes1).click();
     	webs.iframeswitch(txtresearchidea, ResearchIdea);
+    	levidence.info("Entered the Have you or anyone else published this research idea or disclosed it to the public in any way? details");
     	driver.findElement(radioyes2).click();
     	webs.iframeswitch(txtobservationalidea, Observational);
+    	levidence.info("Entered the published or unpublished observational data in humans details for the proposal");
     	driver.findElement(ppo.btnNext).click();
     }
 
     public void enterevidencewithyes(){
     	
     }
-
+    
+    public void enterevidenceregular(String ResearchIdea, String Observational) throws InterruptedException{
+    	driver.findElement(radioyes1).click();
+    	webs.iframeswitch(txtresearchidea, ResearchIdea);
+    	driver.findElement(radioyes2).click();
+    	webs.iframeswitch(txtobservationalidea, Observational);
+    	driver.findElement(ppo.btnNext).click();
+    }
 
 }
