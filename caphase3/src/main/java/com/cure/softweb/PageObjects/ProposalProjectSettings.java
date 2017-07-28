@@ -70,10 +70,11 @@ public class ProposalProjectSettings {
         
     }
    
-    public void proposalsuccessmsg() throws InterruptedException{
+    public String proposalsuccessmsg() throws InterruptedException{
     	Thread.sleep(2000);
     	//System.out.println("The proposal has been created successfully and the URL is: "+driver.getCurrentUrl());
     	lprojsettings.info("The proposal has been created successfully and the URL is: "+driver.getCurrentUrl());
+    	return driver.getCurrentUrl();
     }
 
 }

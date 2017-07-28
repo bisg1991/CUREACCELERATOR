@@ -31,6 +31,8 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.sikuli.script.FindFailed;
+import org.sikuli.script.Screen;
 
 public class WebActions {
 
@@ -992,5 +994,13 @@ public class WebActions {
     	String newInt = Integer.toString(i);
     	return newInt;
 	}
+
+
+    public void clickonimage(String path) throws FindFailed{
+    	Screen s= new Screen();
+		s.click(path);
+    }
+
+
 }
 

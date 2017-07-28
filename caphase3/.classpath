@@ -35,5 +35,8 @@
 			<attribute name="maven.scope" value="compile"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="D:/Sikuli Installs/sikulixsetup-1.1.1.jar"/>
+	<classpathentry kind="lib" path="D:/Sikuli Installs/sikulix.jar"/>
+	<classpathentry kind="lib" path="D:/Sikuli Installs/sikulixapi.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
