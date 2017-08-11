@@ -38,7 +38,7 @@ public class SendMailSSLWithAttachment extends TestBase {
 	public void sendTheEmail() throws EmailException {
 	
 		final String username = "biswajitgqa@gmail.com";
-		final String password = "testing#123";
+		final String password = "softbis24";
 
 		Properties props = new Properties();
 		props.put("mail.smtp.auth", "true");

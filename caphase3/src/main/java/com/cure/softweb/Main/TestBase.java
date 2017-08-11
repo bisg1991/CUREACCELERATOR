@@ -1,5 +1,7 @@
 package com.cure.softweb.Main;
 
+import java.io.File;
+import java.lang.reflect.Method;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
@@ -10,6 +12,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
 
 import customreports.Reports;
 import emailReports.SendMailSSLWithAttachment;
@@ -28,7 +36,8 @@ public class TestBase {
     public SendMailSSLWithAttachment email;
 	public TestNGCustomReportListener tncrl;
 	public static final Logger log=Logger.getLogger(TestBase.class.getName());
-	
+	public ExtentReports extent;
+	ExtentTest test;
 	
 	public void loginit(){
 		String path="/caphase3/Log4j.properties";
@@ -61,6 +70,54 @@ public class TestBase {
 				
 			}
 		}
+	
+	   // Start Extent Report Method 
+		public void startReport()
+	    {
+			extent =new ExtentReports(System.getProperty("user.dir") +"/test-output/MyOwnReport.html");
+	 
+	        extent.addSystemInfo("OS", "Windows 7 Professional (x64) Service Pack 1 (build 7601)");
+	        extent.addSystemInfo("Host Name", "BISWAJIT");
+	        extent.addSystemInfo("Environment", "QA");
+	        extent.addSystemInfo("User Name", "Biswajit Ghosh");
+	        extent.loadConfig(new File(System.getProperty("user.dir")+"\\extent-config.xml"));
+	    }
+		
+		// Get Extent Report Method 
+		public void getResult(ITestResult result)
+		{
+			if(result.getStatus() == ITestResult.FAILURE)
+	        {
+	            
+	            test.log(LogStatus.FAIL,result.getName()+" Testcase is Fail ");
+	            
+	        }
+	        else if(result.getStatus() == ITestResult.SUCCESS)
+	        {
+	        	test.log(LogStatus.PASS,result.getName()+" Testcase is Pass ");
+	        }
+	        else
+	        {
+	        	test.log(LogStatus.SKIP,result.getName()+" Testcase is Skipped ");
+	        }
+		   
+		}
+		
+		
+		@BeforeMethod
+		public void beforeMehtod(Method method){
+			
+			
+			 test=extent.startTest(method.getName());   
+		     test.log(LogStatus.INFO, method.getName()+ "---Test Started---");
+		}
+		
+		
+		@AfterMethod
+		public void afterMethod(ITestResult result){
+			getResult(result);
+		}
+
 
 	public void getUrl(String url) {
 		driver.get(url);

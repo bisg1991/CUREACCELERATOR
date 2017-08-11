@@ -35,6 +35,7 @@ public class RegularProposal extends TestBase {
 		@BeforeTest
 		public void initiateBrowsers(String browser, String URL){
 			 selectBrowser(browser, URL);
+			 startReport();
 			 System.out.println("Chrome browser has been initiated");
 		}
 
@@ -48,13 +49,11 @@ public class RegularProposal extends TestBase {
 	    	
 			hp= new HOMEPAGE(driver);
 			System.out.println("The driver for the priority test 1 is "+ driver);
-			//act.click(hp.ele1);
-			//act.performClick(hp.ele1, driver);
+			
 			hp.ele1.click();
 			try {
 				hp.loginviagooglebutton(emails, pass);
-				//hp.verifyafterloginmessage();
-				rp.updateResult(1, "HomePage", "PASS", "login");
+				
 			} catch (Exception e) {
 				hp.verifyafterloginmessage();
 				System.out.println("Already logged in with social account Gmail");
@@ -156,6 +155,7 @@ public class RegularProposal extends TestBase {
 	     public void terminate() throws EmailException, InterruptedException{
 	    	 Thread.sleep(3000);
 	    	 email.sendTheEmail();
+	    	 extent.flush();
 	    	
 	     }
 	    

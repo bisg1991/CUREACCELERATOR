@@ -158,7 +158,7 @@ public class ProposalProjectOverview{
 		driver.findElement(txtdiseasecondition).sendKeys(Keys.ENTER);
 		webs.iframeswitch(txtdiseasebackground, diebackgrnd);
 		driver.findElement(txttreatments).sendKeys(treatment);
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 		driver.findElement(txttreatments).sendKeys(Keys.ENTER);
 		webs.iframeswitch(txtresearchdescription, ResearchDescription);
 		driver.findElement(btnNext).click();
